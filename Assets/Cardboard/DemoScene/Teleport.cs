@@ -33,6 +33,7 @@ public class Teleport : MonoBehaviour {
     GetComponent<Renderer>().material.color = isLookedAt ? Color.green : Color.red;
     if (Cardboard.SDK.CardboardTriggered && isLookedAt) {
       // Teleport randomly.
+      letsRainbow();
       Vector3 direction = Random.onUnitSphere;
       direction.y = Mathf.Clamp(direction.y, 0.5f, 1f);
       float distance = 2 * Random.value + 1.5f;
@@ -47,5 +48,18 @@ public class Teleport : MonoBehaviour {
     if (GUI.Button(new Rect(50, 50, 200, 50), "Reset")) {
       transform.localPosition = startingPosition;
     }
+  }
+
+  void letsRainbow() {
+    
+    for(int i = 0; i < 5; i++) {
+      GetComponent<Renderer>().material.color = Color.red;
+      GetComponent<Renderer>().material.color = Color.magenta;
+      GetComponent<Renderer>().material.color = Color.yellow;
+      GetComponent<Renderer>().material.color = Color.green;
+      GetComponent<Renderer>().material.color = Color.blue;
+      GetComponent<Renderer>().material.color = Color.grey;
+    }
+
   }
 }
